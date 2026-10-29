@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Bilqies Nazwa Kharisma</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* --- CSS RESET & SOFT BLUE VARIABLES --- */
+    :root {
+      --primary-color: #3b82f6;
+      --primary-hover: #2563eb;
+      --bg-color: #0b1329;
+      --card-bg: #152238;
+      --text-color: #f0f6ff;
+      --text-muted: #94a3b8;
+      --accent-color: #60a5fa;
+      --border-color: #1e293b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* --- NAVIGATION BAR --- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(11, 19, 41, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    /* --- LAYOUT CONTAINER --- */
+    section {
+      padding: 6rem 8% 4rem 8%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .sub-title {
+      font-size: 0.85rem;
+      color: var(--accent-color);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .main-title {
+      font-size: 2.2rem;
+      margin-top: 0.5rem;
+      font-weight: 700;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    /* --- SECTION 1: ABOUT / HOME --- */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .bio-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .profile-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+    }
+
+    .data-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .data-item label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .data-item span {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* --- SECTION 2: EDUCATION & EXPERIENCE --- */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .edu-year {
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .edu-school {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0.3rem 0;
+    }
+
+    .edu-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* TAB PENGALAMAN */
+    .org-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .org-role {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    /* --- SECTION 3: SERTIFIKASI --- */
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .cert-icon {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+    }
+
+    .cert-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* --- SECTION 4: CONTACT --- */
+    .contact-container {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--bg-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <div class="logo">BILQIES.</div>
+    <ul class="nav-links">
+      <li><a href="#about">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#education">PENDIDIKAN & PENGALAMAN</a></li>
+      <li><a href="#certification">SERTIFIKASI</a></li>
+      <li><a href="#contact">KONTAK</a></li>
+    </ul>
+  </nav>
+
+  <!-- BAGIAN 1: ABOUT & BIOGRAFI RINGKAS -->
+  <section id="about">
+    <div class="section-header">
+      <span class="sub-title">01 / TENTANG SAYA</span>
+      <h1 class="main-title">Latar Belakang & Perjalanan Akademik</h1>
+      <p class="tagline">"Integrating Technology and Pedagogy to Shape the Future of Education."</p>
+    </div>
+    <div class="about-content">
+      <div>
+        <p class="bio-text">
+          Hello everyone !! Saya <strong>Bilqies Nazwa Kharisma</strong>, seorang mahasiswa S1 Pendidikan Teknologi Informasi di Universitas Negeri Surabaya (UNESA) yang memiliki minat kuat terhadap perkembangan teknologi informasi dan komputasi, khususnya pada bidang komputer dan jaringan, serta integrasi teknologi digital dalam dunia pendidikan. Saya meyakini bahwa sinergi antara kemajuan teknologi dan pendekatan pedagogis yang inovatif merupakan fondasi penting dalam mewujudkan ekosistem pembelajaran yang adaptif, efektif, dan berorientasi pada masa depan.
+        </p>
+        <p class="bio-text">
+          Latar belakang pendidikan saya di SMK Negeri 1 Cerme, jurusan Teknik Komputer dan Jaringan (TKJ), menjadi landasan dalam membangun kompetensi teknis, pola pikir sistematis, serta kemampuan analitis dalam menghadapi berbagai permasalahan teknologi. Pengalaman Praktik Kerja Lapangan (PKL) di PT Jinde Grup Indonesia turut memperluas wawasan profesional saya melalui keterlibatan dalam aktivasi jaringan internet, customer services, marketing, dan administrasi. Selain itu, pengalaman berorganisasi sebagai juru uang Komando Pramuka Alas jurit membentuk karakter yang bertanggung jawab, disiplin, serta mampu berkolaborasi dan berkontribusi dalam pencapaian tujuan bersama.
+        </p>
+        <p class="bio-text">
+          Berbekal perpaduan pengetahuan teknis, pengalaman profesional, dan keterampilan interpersonal, saya berkomitmen untuk terus mengembangkan kapasitas diri, memperluas wawasan keilmuan, serta beradaptasi dengan dinamika transformasi digital. Ke depannya, saya beraspirasi untuk berkontribusi dalam pengembangan inovasi teknologi pendidikan yang tidak hanya unggul secara teknis, tetapi juga memiliki nilai guna, relevansi pedagogis, dan dampak positif bagi peningkatan kualitas pembelajaran.
+        </p>
+      </div>
+      <div class="profile-card">
+        <h3>BIOGRAFI RINGKAS</h3>
+        <div class="data-item">
+          <label>Nama Lengkap</label>
+          <span>Bilqies Nazwa Kharisma</span>
+        </div>
+        <div class="data-item">
+          <label>NIM</label>
+          <span>26050974055</span>
+        </div>
+        <div class="data-item">
+          <label>Program Studi</label>
+          <span>Pendidikan Teknologi Informasi</span>
+        </div>
+        <div class="data-item">
+          <label>Fakultas</label>
+          <span>Fakultas Teknik</span>
+        </div>
+        <div class="data-item">
+          <label>Perguruan Tinggi</label>
+          <span>Universitas Negeri Surabaya (UNESA)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN 2: RIWAYAT PENDIDIKAN & PENGALAMAN -->
+  <section id="education">
+    <div class="section-header">
+      <span class="sub-title">1.1 | PENDIDIKAN FORMAL</span>
+      <h2 class="main-title">Riwayat Pendidikan</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <span class="edu-year">2026 – Sekarang</span>
+        <h3 class="edu-school">Universitas Negeri Surabaya</h3>
+        <p class="edu-desc">Program Studi S1 Pendidikan Teknologi Informasi, Jurusan Teknik Informatika, Fakultas Teknik. Berfokus pada pengembangan kompetensi teknologi informasi dan integrasi teknologi digital dalam dunia pendidikan.</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2023 – 2026</span>
+        <h3 class="edu-school">SMK Negeri 1 Cerme</h3>
+        <p class="edu-desc">Jurusan Teknik Komputer dan Jaringan (TKJ). Mempelajari dasar-dasar komputer, konfigurasi jaringan, administrasi sistem, serta pemecahan masalah teknis di bidang teknologi informasi.</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2020 – 2023</span>
+        <h3 class="edu-school">MTs Negeri Gresik</h3>
+        <p class="edu-desc">Menempuh pendidikan tingkat menengah pertama dengan fokus pada bidang keagamaan, pembentukan karakter, penguatan nilai-nilai moral, serta pengembangan kedisiplinan dan tanggung jawab.</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2014 – 2020</span>
+        <h3 class="edu-school">MI Nurul Huda Sawahan</h3>
+        <p class="edu-desc">Menyelesaikan pendidikan dasar dengan membangun fondasi pengetahuan, menanamkan nilai-nilai keagamaan, serta mengembangkan karakter, kedisiplinan, dan semangat belajar.</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 2rem;">
+      <span class="sub-title">1.2 | PENGALAMAN</span>
+      <h2 class="main-title">Pengalaman, Ekstrakurikuler & Keorganisasian</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Pilih opsi di bawah ini untuk melihat rincian pengalaman saya:</p>
+    </div>
+
+    <!-- TAB BUTTONS -->
+    <div class="org-tabs">
+      <button class="tab-btn active" onclick="openOrg(event, 'history')">History of Education</button>
+      <button class="tab-btn" onclick="openOrg(event, 'internship')">Internship Experience</button>
+      <button class="tab-btn" onclick="openOrg(event, 'juru-uang')">Juru Uang (Pramuka)</button>
+      <button class="tab-btn" onclick="openOrg(event, 'koprajur')">KOPRAJUR (Pramuka Khusus)</button>
+      <button class="tab-btn" onclick="openOrg(event, 'taekwondo')">Taekwondo</button>
+      <button class="tab-btn" onclick="openOrg(event, 'voli')">Bola Voli</button>
+    </div>
+
+    <!-- TAB CONTENTS -->
+    <div id="history" class="tab-content active">
+      <div class="org-role">History of Education | SMKN 1 Cerme (Teknik Komputer dan Jaringan)</div>
+      <p class="bio-text">Selama menempuh pendidikan di jurusan Teknik Komputer dan Jaringan (TKJ), saya mempelajari dasar-dasar komputer, instalasi dan pemeliharaan jaringan, konfigurasi perangkat jaringan, pemecahan masalah teknis, serta manajemen sistem operasi. Saya juga mengembangkan keterampilan dalam penggunaan aplikasi produktivitas seperti Microsoft Office dan memperoleh pemahaman dasar mengenai pemasaran serta administrasi digital melalui pengalaman Praktik Kerja Lapangan (PKL). Selain bidang akademik, saya aktif mengikuti kegiatan ekstrakurikuler Taekwondo dan bola voli yang membantu mengembangkan kedisiplinan, ketahanan fisik dan mental, sportivitas, serta kemampuan bekerja sama dalam tim.</p>
+    </div>
+
+    <div id="internship" class="tab-content">
+      <div class="org-role">Internship Experience | PT Jinde Grup Indonesia (Internet Service Activation & Marketing)</div>
+      <p class="bio-text">Selama menjalani Praktik Kerja Lapangan di PT Jinde Grup Indonesia, saya terlibat dalam kegiatan pemasaran, administrasi pemasaran, pengelolaan data pelanggan, serta pelayanan pelanggan. Saya juga menjalankan tugas sebagai helpdesk dalam mendukung proses aktivasi layanan internet dan jaringan. Pengalaman ini memperkuat keterampilan komunikasi, pemasaran, administrasi, pemecahan masalah teknis jaringan, serta kemampuan berkolaborasi dalam lingkungan kerja profesional.</p>
+    </div>
+
+    <div id="juru-uang" class="tab-content">
+      <div class="org-role">Organizational Experience | Juru Uang (Pengurus Ambalan Inti SMKN 1 Cerme)</div>
+      <p class="bio-text">Sebagai Juru Uang dalam Komando Pramuka Alas Jurit, saya bertanggung jawab atas pencatatan pemasukan dan pengeluaran, penyusunan laporan keuangan, serta pengelolaan dana secara tertib dan transparan. Saya juga terlibat dalam perencanaan anggaran, penyusunan konsep kegiatan, koordinasi persiapan, dan pelaksanaan kegiatan secara langsung. Pengalaman ini membentuk kemampuan saya dalam administrasi keuangan, perencanaan kegiatan, berpikir kritis, serta memperkuat nilai tanggung jawab, integritas, kedisiplinan, dan kerja sama tim.</p>
+    </div>
+
+    <div id="koprajur" class="tab-content">
+      <div class="org-role">Organizational Experience | Komando Pramuka Alas Jurit (KOPRAJUR) – Pramuka Khusus</div>
+      <p class="bio-text">Saya merupakan bagian dari Komando Pramuka Alas Jurit (KOPRAJUR), sebuah organisasi Pramuka Khusus yang menjadi wadah pengembangan karakter, kepemimpinan, dan keterampilan berorganisasi. Sebagai anggota tim inti, saya pernah terlibat dalam berbagai divisi serta dipercaya menjadi ketua pelaksana dalam sejumlah kegiatan. Saya berperan dalam merancang konsep acara, menyusun perencanaan kegiatan, mengoordinasikan pelaksanaan, mengelola situasi di lapangan, membangun kerja sama tim, serta melakukan evaluasi sebagai bahan pengembangan kegiatan selanjutnya. Pengalaman ini memperkaya kemampuan saya dalam kepemimpinan, kedisiplinan, berpikir kritis, kreativitas, pemecahan masalah, dan komunikasi. Selain itu, keterlibatan dalam Pramuka Khusus menanamkan nilai jiwa korsa, solidaritas, loyalitas, dan rasa tanggung jawab.</p>
+    </div>
+
+    <div id="taekwondo" class="tab-content">
+      <div class="org-role">Extracurricular Experience | Taekwondo</div>
+      <p class="bio-text">Selama mengikuti kegiatan ekstrakurikuler Taekwondo, saya berpartisipasi dalam latihan rutin, turnamen, serta ujian kenaikan tingkat sebagai bentuk pengembangan kemampuan dan evaluasi pencapaian diri. Melalui latihan dan partisipasi dalam turnamen, saya memperoleh pengalaman dalam menerapkan teknik bela diri, meningkatkan ketahanan fisik dan mental, serta membangun kepercayaan diri dalam menghadapi situasi kompetitif. Sementara itu, ujian kenaikan tingkat menjadi sarana untuk mengukur penguasaan teknik, kedisiplinan, dan perkembangan kemampuan yang telah saya pelajari. Pengalaman tersebut membentuk karakter yang tangguh, konsisten, sportif, serta memiliki kemampuan mengendalikan diri dan semangat untuk terus berkembang.</p>
+    </div>
+
+    <div id="voli" class="tab-content">
+      <div class="org-role">Extracurricular Experience | Bola Voli</div>
+      <p class="bio-text">Selama mengikuti kegiatan ekstrakurikuler bola voli, saya berpartisipasi dalam latihan rutin dan mengikuti turnamen sebagai sarana untuk mengembangkan keterampilan bermain serta menguji kemampuan tim dalam situasi kompetitif. Melalui kegiatan tersebut, saya memperoleh pengalaman dalam menerapkan strategi permainan, meningkatkan koordinasi, membangun kekompakan, serta menyesuaikan diri dengan dinamika pertandingan. Pengalaman mengikuti turnamen turut mengembangkan kepercayaan diri, kedisiplinan, sportivitas, dan kemampuan bekerja sama dalam tim.</p>
+    </div>
+  </section>
+
+  <!-- BAGIAN 3: SERTIFIKASI -->
+  <section id="certification">
+    <div class="section-header">
+      <span class="sub-title">02 / KUALIFIKASI</span>
+      <h2 class="main-title">Sertifikasi & Penghargaan</h2>
+    </div>
+    <div class="cert-list">
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div class="cert-info">
+          <h4>Sertifikat Kompetensi BNSP</h4>
+          <p>Junior Network Administrator Kompeten dalam bidang Rekayasa Jaringan Komputer.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-briefcase"></i></div>
+        <div class="cert-info">
+          <h4>Sertifikat Praktik Kerja Lapangan</h4>
+          <p>PT Jinde Grup Indonesia</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+        <div class="cert-info">
+          <h4>Sertifikat Workshop Canva</h4>
+          <p>Universitas Internasional Semen Indonesia</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-medal"></i></div>
+        <div class="cert-info">
+          <h4>Sertifikat Medali Perak OSEC Nasional (PAI)</h4>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-campground"></i></div>
+        <div class="cert-info">
+          <h4>Sertifikat Peserta East Java Scout Olympiade</h4>
+          <p>Tingkat Jawa Timur.</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><i class="fa-solid fa-user-shield"></i></div>
+        <div class="cert-info">
+          <h4>Sertifikat Juru Uang Putri</h4>
+          <p>Pengurus Ambalan SMK Negeri 1 Cerme</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN 4: CONTACT -->
+  <section id="contact">
+    <div class="contact-container">
+      <div class="section-header">
+        <span class="sub-title">03 / KONTAK</span>
+        <h2 class="main-title">Hubungi Saya</h2>
+      </div>
+      <p class="bio-text">Saya terbuka untuk berdiskusi, bertukar gagasan, serta menjalin kolaborasi. Silakan hubungi saya melalui informasi kontak di bawah ini!</p>
+      <div class="contact-links">
+        <a href="tel:083114854702" class="contact-btn"><i class="fa-solid fa-phone"></i> 0831-1485-4702</a>
+        <a href="mailto:bilqiesnazwakharisma@gmail.com" class="contact-btn" target="_blank"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/bilqies-nazwa-kharisma-2a8b05441?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="contact-btn" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/bilqiesnazwakharisma-blip" class="contact-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.instagram.com/bilqiesnazwa?srtk=ZWFzeDFncjl0aGV5&utm_source=qr" class="contact-btn" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <a href="#" class="contact-btn"><i class="fa-solid fa-location-dot"></i> Sawahan Gedangkulut, Kec. Cerme Kab. Gresik Jawa timur 61171</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Bilqies Nazwa Kharisma. All rights reserved. | Pendidikan Teknologi Informasi UNESA</p>
+  </footer>
+
+  <!-- JAVASCRIPT UNTUK TAB PENGALAMAN -->
+  <script>
+    function openOrg(evt, orgName) {
+      var i, tabcontent, tablinks;
+      
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      document.getElementById(orgName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+</html>
